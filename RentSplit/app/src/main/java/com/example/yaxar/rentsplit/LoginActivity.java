@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         else if (user3.equals(email) && password.equals(realPassword)){
             intent.putExtra("user3",user3);
         }
-        startActivityForResult(intent);
+        startActivity(intent);
     }
 
 
