@@ -71,17 +71,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     public void onClickLogIn(View view){
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intentMain = new Intent(this, MainActivity.class);
         if (user1.equals(email) && password.equals(realPassword)){
-            intent.putExtra("user1",user1);
+            intentMain.putExtra("user",user1);
         }
         else if (user2.equals(email) && password.equals(realPassword)){
-            intent.putExtra("user2",user2);
+            intentMain.putExtra("user",user2);
         }
         else if (user3.equals(email) && password.equals(realPassword)){
-            intent.putExtra("user3",user3);
+            intentMain.putExtra("user",user3);
         }
-        startActivity(intent);
+        //how to handel invalid emails
+        startActivity(intentMain);
     }
 
 
