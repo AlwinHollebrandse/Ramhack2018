@@ -3,6 +3,7 @@ package com.example.yaxar.rentsplit;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -31,6 +32,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -61,6 +63,28 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private String realPassword = "password";
+    private String user1 = "email1@capital1.com";
+    private String user2 = "email2@capital1.com";
+    private String user3 = "email3@capital1.com";
+
+    public void onClickLogIn(View view){
+        String email = mEmailView.getText().toString();
+        String password = mPasswordView.getText().toString();
+        Intent intent = new Intent(this, MainActivity.class);
+        if (user1.equals(email) && password.equals(realPassword)){
+            intent.putExtra("user1",user1);
+        }
+        else if (user2.equals(email) && password.equals(realPassword)){
+            intent.putExtra("user2",user2);
+        }
+        else if (user3.equals(email) && password.equals(realPassword)){
+            intent.putExtra("user3",user3);
+        }
+        startActivityForResult(intent);
+    }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
